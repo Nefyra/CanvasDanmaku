@@ -1,0 +1,32 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btn_add_bottom
+id btn_add_repeated
+id btn_add_special
+id btn_add_top
+id btn_add_unique
+id btn_clear
+id btn_mode_mixed
+id btn_mode_repeated
+id btn_mode_stress
+id btn_mode_unique
+id btn_start_auto
+id btn_stop_auto
+id btn_toggle
+id btn_toggle_batch
+id btn_toggle_cache
+id danmaku_view
+id seekbar_speed
+id tv_danmaku_count
+id tv_fps
+id tv_speed_value
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style AppTheme
+style Base.AppTheme
+xml backup_rules
+xml data_extraction_rules

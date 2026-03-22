@@ -1,0 +1,26 @@
+package io.github.Nefyra.canvasdanmaku
+
+data class DanmakuOption(
+    val fontSize: Float = 16f,
+    val textColor: Int = android.graphics.Color.WHITE,
+    val strokeWidth: Float = 1.5f,
+    val strokeColor: Int = android.graphics.Color.BLACK,
+    val durationMillis: Long = 10000,
+    val trackArea: Float = 1.0f,
+    val safeArea: Boolean = true,
+    val massiveMode: Boolean = false,
+    val lineHeight: Float = 1.2f,
+    val useBitmapCache: Boolean = true,
+    val useBatchPainter: Boolean = true,
+    val enableDynamicFrameRate: Boolean = true,
+    val minFrameRate: Int = 24,
+    val maxFrameRate: Int = 60,
+    val bezierX1: Float = 0.42f,
+    val bezierY1: Float = 0f,
+    val bezierX2: Float = 0.58f,
+    val bezierY2: Float = 1f,
+    val staticDurationMillis: Long = 5000,
+    val hideTop: Boolean = false,
+    val hideBottom: Boolean = false,
+    val hideSpecial: Boolean = false,
+)

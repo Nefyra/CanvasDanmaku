@@ -1,0 +1,20 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/danmaku/app/src/main/kotlin/com/example/danmaku/MainActivity.kt",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 7753,
+          "line": 233
+        },
+        "start": {
+          "column": 0,
+          "index": 7753,
+          "line": 233
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/danmaku/app/src/main/kotlin/com/example/danmaku/MainActivity.kt"
+}
