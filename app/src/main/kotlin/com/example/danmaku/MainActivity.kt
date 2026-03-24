@@ -264,6 +264,147 @@ class MainActivity : AppCompatActivity() {
             stopAutoAdd()
             showToast("已停止自动添加")
         }
+
+        // 字体大小调整
+        val fontSeekBar = findViewById<SeekBar>(R.id.seekbar_font_size)
+        val fontSizeText = findViewById<TextView>(R.id.tv_font_size_value)
+        fontSeekBar.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean,
+                ) {
+                    val fontSize = (10 + progress / 2).toFloat()
+                    fontSizeText.text = "${fontSize.toInt()}"
+                    if (fromUser) {
+                        danmakuView.option = danmakuView.option.copy(fontSize = fontSize)
+                        showToast("字体大小: ${fontSize.toInt()}")
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            },
+        )
+
+        // 持续时间调整
+        val durationSeekBar = findViewById<SeekBar>(R.id.seekbar_duration)
+        val durationText = findViewById<TextView>(R.id.tv_duration_value)
+        durationSeekBar.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean,
+                ) {
+                    val duration = progress.toLong()
+                    durationText.text = "${duration / 1000}s"
+                    if (fromUser) {
+                        danmakuView.option = danmakuView.option.copy(durationMillis = duration)
+                        showToast("持续时间: ${duration / 1000}s")
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            },
+        )
+
+        // 轨道区域调整
+        val trackSeekBar = findViewById<SeekBar>(R.id.seekbar_track_area)
+        val trackText = findViewById<TextView>(R.id.tv_track_area_value)
+        trackSeekBar.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean,
+                ) {
+                    val trackArea = progress / 100f
+                    trackText.text = String.format("%.2f", trackArea)
+                    if (fromUser) {
+                        danmakuView.option = danmakuView.option.copy(trackArea = trackArea)
+                        showToast("轨道区域: ${(trackArea * 100).toInt()}%")
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            },
+        )
+
+        // 行高调整
+        val lineSeekBar = findViewById<SeekBar>(R.id.seekbar_line_height)
+        val lineText = findViewById<TextView>(R.id.tv_line_height_value)
+        lineSeekBar.setOnSeekBarChangeListener(
+            object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(
+                    seekBar: SeekBar?,
+                    progress: Int,
+                    fromUser: Boolean,
+                ) {
+                    val lineHeight = 0.8f + progress / 20f
+                    lineText.text = String.format("%.1f", lineHeight)
+                    if (fromUser) {
+                        danmakuView.option = danmakuView.option.copy(lineHeight = lineHeight)
+                        showToast("行高: $lineHeight")
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            },
+        )
+
+        // 安全区域开关
+        val safeAreaBtn = findViewById<Button>(R.id.btn_toggle_safe_area)
+        safeAreaBtn.setOnClickListener {
+            val newSafeArea = !danmakuView.option.safeArea
+            danmakuView.option = danmakuView.option.copy(safeArea = newSafeArea)
+            safeAreaBtn.text = if (newSafeArea) "开启" else "关闭"
+            showToast("安全区域: ${if (newSafeArea) "开启" else "关闭"}")
+        }
+
+        // 大量模式开关
+        val massiveBtn = findViewById<Button>(R.id.btn_toggle_massive)
+        massiveBtn.setOnClickListener {
+            val newMassive = !danmakuView.option.massiveMode
+            danmakuView.option = danmakuView.option.copy(massiveMode = newMassive)
+            massiveBtn.text = if (newMassive) "开启" else "关闭"
+            showToast("大量模式: ${if (newMassive) "开启" else "关闭"} (轨道满时仍添加)")
+        }
+
+        // 隐藏顶部弹幕
+        val hideTopBtn = findViewById<Button>(R.id.btn_toggle_hide_top)
+        hideTopBtn.setOnClickListener {
+            val newHide = !danmakuView.option.hideTop
+            danmakuView.option = danmakuView.option.copy(hideTop = newHide)
+            hideTopBtn.text = if (newHide) "显示顶部" else "隐藏顶部"
+            showToast(if (newHide) "已隐藏顶部弹幕" else "已显示顶部弹幕")
+        }
+
+        // 隐藏底部弹幕
+        val hideBottomBtn = findViewById<Button>(R.id.btn_toggle_hide_bottom)
+        hideBottomBtn.setOnClickListener {
+            val newHide = !danmakuView.option.hideBottom
+            danmakuView.option = danmakuView.option.copy(hideBottom = newHide)
+            hideBottomBtn.text = if (newHide) "显示底部" else "隐藏底部"
+            showToast(if (newHide) "已隐藏底部弹幕" else "已显示底部弹幕")
+        }
+
+        // 隐藏高级弹幕
+        val hideSpecialBtn = findViewById<Button>(R.id.btn_toggle_hide_special)
+        hideSpecialBtn.setOnClickListener {
+            val newHide = !danmakuView.option.hideSpecial
+            danmakuView.option = danmakuView.option.copy(hideSpecial = newHide)
+            hideSpecialBtn.text = if (newHide) "显示高级" else "隐藏高级"
+            showToast(if (newHide) "已隐藏高级弹幕" else "已显示高级弹幕")
+        }
     }
 
     private fun showRandomSpecialDanmaku() {

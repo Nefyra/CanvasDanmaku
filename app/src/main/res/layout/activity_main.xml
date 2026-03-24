@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -33,7 +33,6 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- 模式切换 -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -45,7 +44,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
-
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,7 +104,7 @@
                 android:id="@+id/seekbar_speed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="3" />
+                android:max="9" />
 
             <TextView
                 android:id="@+id/tv_speed_value"
@@ -115,6 +114,222 @@
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="⚙️ 参数调整"
+                android:textColor="#FFEB3B"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- 字体大小调整 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="字体大小"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_font_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="50"
+                    android:progress="18" />
+
+                <TextView
+                    android:id="@+id/tv_font_size_value"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="18"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <!-- 持续时间调整 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="持续时间"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_duration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="15000"
+                    android:progress="8000" />
+
+                <TextView
+                    android:id="@+id/tv_duration_value"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="8s"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <!-- 轨道区域调整 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="轨道区域"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_track_area"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="90" />
+
+                <TextView
+                    android:id="@+id/tv_track_area_value"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.9"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <!-- 行高调整 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="行高"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_line_height"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="30"
+                    android:progress="12" />
+
+                <TextView
+                    android:id="@+id/tv_line_height_value"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="1.2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="end" />
+            </LinearLayout>
+
+            <!-- 安全区域开关 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="安全区域"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_toggle_safe_area"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="开启"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 大量模式开关 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="大量模式"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_toggle_massive"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="关闭"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 隐藏选项 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btn_toggle_hide_top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="隐藏顶部"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_toggle_hide_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="隐藏底部"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btn_toggle_hide_special"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="隐藏高级"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 现有优化选项区域 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -145,7 +360,7 @@
                     android:text="Bitmap缓存: 开"
                     android:textSize="12sp" />
             </LinearLayout>
-
+            
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -59,6 +59,9 @@ class DanmakuView
                 val oldHideSpecial = field.hideSpecial
                 field = value
                 DanmakuRasterizer.updateSelfSendPaint(value.strokeWidth)
+
+                refreshDanmakuStyles()
+
                 clearBitmapCache()
                 recalcTracks()
 
@@ -866,6 +869,101 @@ class DanmakuView
             specialDanmakus.forEach { it.dispose() }
             batchPainter?.dispose()
             batchPainter = null
+        }
+
+        private fun refreshDanmakuStyles() {
+            val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply { textSize = option.fontSize }
+            val strokeWidth = option.strokeWidth
+            val strokeColor = option.strokeColor
+            val density = resources.displayMetrics.density
+
+            // 更新滚动弹幕
+            scrollDanmaku.forEach { item ->
+                item.textSize = option.fontSize
+                item.duration = option.durationMillis
+                item.measure(paint)
+                item.speed = (viewWidth + item.width) / item.duration.toFloat()
+                if (option.useBitmapCache) {
+                    item.cachedBitmap?.recycle()
+                    item.cachedBitmap =
+                        DanmakuRasterizer.rasterizeDanmaku(
+                            text = item.text,
+                            color = item.color,
+                            textSize = option.fontSize,
+                            strokeWidth = strokeWidth,
+                            strokeColor = strokeColor,
+                            selfSend = item.selfSend,
+                            hasStroke = item.hasStroke,
+                            devicePixelRatio = density,
+                        )
+                }
+            }
+
+            // 更新顶部弹幕
+            topDanmakus.forEach { item ->
+                item.textSize = option.fontSize
+                item.duration = option.staticDurationMillis
+                item.measure(paint)
+                if (option.useBitmapCache) {
+                    item.cachedBitmap?.recycle()
+                    item.cachedBitmap =
+                        DanmakuRasterizer.rasterizeDanmaku(
+                            text = item.text,
+                            color = item.color,
+                            textSize = option.fontSize,
+                            strokeWidth = strokeWidth,
+                            strokeColor = strokeColor,
+                            selfSend = item.selfSend,
+                            hasStroke = item.hasStroke,
+                            devicePixelRatio = density,
+                        )
+                }
+            }
+
+            // 更新底部弹幕
+            bottomDanmakus.forEach { item ->
+                item.textSize = option.fontSize
+                item.duration = option.staticDurationMillis
+                item.measure(paint)
+                if (option.useBitmapCache) {
+                    item.cachedBitmap?.recycle()
+                    item.cachedBitmap =
+                        DanmakuRasterizer.rasterizeDanmaku(
+                            text = item.text,
+                            color = item.color,
+                            textSize = option.fontSize,
+                            strokeWidth = strokeWidth,
+                            strokeColor = strokeColor,
+                            selfSend = item.selfSend,
+                            hasStroke = item.hasStroke,
+                            devicePixelRatio = density,
+                        )
+                }
+            }
+
+            // 更新高级弹幕
+            specialDanmakus.forEach { item ->
+                item.textSize = option.fontSize
+                item.duration = item.specialParams?.duration ?: option.durationMillis
+                val metrics = DanmakuRasterizer.measureText(item.text, option.fontSize, strokeWidth)
+                item.width = metrics.width
+                item.height = metrics.height
+                if (option.useBitmapCache && item.specialParams != null) {
+                    item.specialParams?.cachedBitmap?.recycle()
+                    item.specialParams?.cachedBitmap =
+                        DanmakuRasterizer.rasterizeSpecialDanmaku(
+                            text = item.text,
+                            color = item.color,
+                            textSize = option.fontSize,
+                            strokeWidth = strokeWidth,
+                            strokeColor = strokeColor,
+                            selfSend = item.selfSend,
+                            hasStroke = item.hasStroke,
+                            devicePixelRatio = density,
+                            specialParams = item.specialParams!!,
+                        )
+                }
+            }
         }
 
         fun pause() {

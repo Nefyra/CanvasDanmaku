@@ -41,6 +41,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button btnClear;
 
   @NonNull
+  public final Button btnLoadTimeline;
+
+  @NonNull
   public final Button btnModeMixed;
 
   @NonNull
@@ -51,6 +54,21 @@ public final class ActivityMainBinding implements ViewBinding {
 
   @NonNull
   public final Button btnModeUnique;
+
+  @NonNull
+  public final Button btnPlayPause;
+
+  @NonNull
+  public final Button btnResetTimeline;
+
+  @NonNull
+  public final Button btnSeek10;
+
+  @NonNull
+  public final Button btnSeek10Forward;
+
+  @NonNull
+  public final Button btnSeek30;
 
   @NonNull
   public final Button btnStartAuto;
@@ -68,28 +86,90 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button btnToggleCache;
 
   @NonNull
+  public final Button btnToggleHideBottom;
+
+  @NonNull
+  public final Button btnToggleHideSpecial;
+
+  @NonNull
+  public final Button btnToggleHideTop;
+
+  @NonNull
+  public final Button btnToggleMassive;
+
+  @NonNull
+  public final Button btnToggleSafeArea;
+
+  @NonNull
   public final DanmakuView danmakuView;
+
+  @NonNull
+  public final SeekBar seekbarDuration;
+
+  @NonNull
+  public final SeekBar seekbarFontSize;
+
+  @NonNull
+  public final SeekBar seekbarLineHeight;
 
   @NonNull
   public final SeekBar seekbarSpeed;
 
   @NonNull
+  public final SeekBar seekbarTrackArea;
+
+  @NonNull
+  public final TextView tvCurrentTime;
+
+  @NonNull
   public final TextView tvDanmakuCount;
+
+  @NonNull
+  public final TextView tvDurationValue;
+
+  @NonNull
+  public final TextView tvFontSizeValue;
 
   @NonNull
   public final TextView tvFps;
 
   @NonNull
+  public final TextView tvLineHeightValue;
+
+  @NonNull
   public final TextView tvSpeedValue;
+
+  @NonNull
+  public final TextView tvTotalTime;
+
+  @NonNull
+  public final TextView tvTrackAreaValue;
+
+  @NonNull
+  public final TextView tvVideoTime;
+
+  @NonNull
+  public final SeekBar videoSeekbar;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button btnAddBottom,
       @NonNull Button btnAddRepeated, @NonNull Button btnAddSpecial, @NonNull Button btnAddTop,
-      @NonNull Button btnAddUnique, @NonNull Button btnClear, @NonNull Button btnModeMixed,
-      @NonNull Button btnModeRepeated, @NonNull Button btnModeStress, @NonNull Button btnModeUnique,
+      @NonNull Button btnAddUnique, @NonNull Button btnClear, @NonNull Button btnLoadTimeline,
+      @NonNull Button btnModeMixed, @NonNull Button btnModeRepeated, @NonNull Button btnModeStress,
+      @NonNull Button btnModeUnique, @NonNull Button btnPlayPause, @NonNull Button btnResetTimeline,
+      @NonNull Button btnSeek10, @NonNull Button btnSeek10Forward, @NonNull Button btnSeek30,
       @NonNull Button btnStartAuto, @NonNull Button btnStopAuto, @NonNull Button btnToggle,
       @NonNull Button btnToggleBatch, @NonNull Button btnToggleCache,
-      @NonNull DanmakuView danmakuView, @NonNull SeekBar seekbarSpeed,
-      @NonNull TextView tvDanmakuCount, @NonNull TextView tvFps, @NonNull TextView tvSpeedValue) {
+      @NonNull Button btnToggleHideBottom, @NonNull Button btnToggleHideSpecial,
+      @NonNull Button btnToggleHideTop, @NonNull Button btnToggleMassive,
+      @NonNull Button btnToggleSafeArea, @NonNull DanmakuView danmakuView,
+      @NonNull SeekBar seekbarDuration, @NonNull SeekBar seekbarFontSize,
+      @NonNull SeekBar seekbarLineHeight, @NonNull SeekBar seekbarSpeed,
+      @NonNull SeekBar seekbarTrackArea, @NonNull TextView tvCurrentTime,
+      @NonNull TextView tvDanmakuCount, @NonNull TextView tvDurationValue,
+      @NonNull TextView tvFontSizeValue, @NonNull TextView tvFps,
+      @NonNull TextView tvLineHeightValue, @NonNull TextView tvSpeedValue,
+      @NonNull TextView tvTotalTime, @NonNull TextView tvTrackAreaValue,
+      @NonNull TextView tvVideoTime, @NonNull SeekBar videoSeekbar) {
     this.rootView = rootView;
     this.btnAddBottom = btnAddBottom;
     this.btnAddRepeated = btnAddRepeated;
@@ -97,20 +177,43 @@ public final class ActivityMainBinding implements ViewBinding {
     this.btnAddTop = btnAddTop;
     this.btnAddUnique = btnAddUnique;
     this.btnClear = btnClear;
+    this.btnLoadTimeline = btnLoadTimeline;
     this.btnModeMixed = btnModeMixed;
     this.btnModeRepeated = btnModeRepeated;
     this.btnModeStress = btnModeStress;
     this.btnModeUnique = btnModeUnique;
+    this.btnPlayPause = btnPlayPause;
+    this.btnResetTimeline = btnResetTimeline;
+    this.btnSeek10 = btnSeek10;
+    this.btnSeek10Forward = btnSeek10Forward;
+    this.btnSeek30 = btnSeek30;
     this.btnStartAuto = btnStartAuto;
     this.btnStopAuto = btnStopAuto;
     this.btnToggle = btnToggle;
     this.btnToggleBatch = btnToggleBatch;
     this.btnToggleCache = btnToggleCache;
+    this.btnToggleHideBottom = btnToggleHideBottom;
+    this.btnToggleHideSpecial = btnToggleHideSpecial;
+    this.btnToggleHideTop = btnToggleHideTop;
+    this.btnToggleMassive = btnToggleMassive;
+    this.btnToggleSafeArea = btnToggleSafeArea;
     this.danmakuView = danmakuView;
+    this.seekbarDuration = seekbarDuration;
+    this.seekbarFontSize = seekbarFontSize;
+    this.seekbarLineHeight = seekbarLineHeight;
     this.seekbarSpeed = seekbarSpeed;
+    this.seekbarTrackArea = seekbarTrackArea;
+    this.tvCurrentTime = tvCurrentTime;
     this.tvDanmakuCount = tvDanmakuCount;
+    this.tvDurationValue = tvDurationValue;
+    this.tvFontSizeValue = tvFontSizeValue;
     this.tvFps = tvFps;
+    this.tvLineHeightValue = tvLineHeightValue;
     this.tvSpeedValue = tvSpeedValue;
+    this.tvTotalTime = tvTotalTime;
+    this.tvTrackAreaValue = tvTrackAreaValue;
+    this.tvVideoTime = tvVideoTime;
+    this.videoSeekbar = videoSeekbar;
   }
 
   @Override
@@ -176,6 +279,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_load_timeline;
+      Button btnLoadTimeline = ViewBindings.findChildViewById(rootView, id);
+      if (btnLoadTimeline == null) {
+        break missingId;
+      }
+
       id = R.id.btn_mode_mixed;
       Button btnModeMixed = ViewBindings.findChildViewById(rootView, id);
       if (btnModeMixed == null) {
@@ -197,6 +306,36 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.btn_mode_unique;
       Button btnModeUnique = ViewBindings.findChildViewById(rootView, id);
       if (btnModeUnique == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_play_pause;
+      Button btnPlayPause = ViewBindings.findChildViewById(rootView, id);
+      if (btnPlayPause == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_reset_timeline;
+      Button btnResetTimeline = ViewBindings.findChildViewById(rootView, id);
+      if (btnResetTimeline == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_seek_10;
+      Button btnSeek10 = ViewBindings.findChildViewById(rootView, id);
+      if (btnSeek10 == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_seek_10_forward;
+      Button btnSeek10Forward = ViewBindings.findChildViewById(rootView, id);
+      if (btnSeek10Forward == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_seek_30;
+      Button btnSeek30 = ViewBindings.findChildViewById(rootView, id);
+      if (btnSeek30 == null) {
         break missingId;
       }
 
@@ -230,9 +369,57 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btn_toggle_hide_bottom;
+      Button btnToggleHideBottom = ViewBindings.findChildViewById(rootView, id);
+      if (btnToggleHideBottom == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_toggle_hide_special;
+      Button btnToggleHideSpecial = ViewBindings.findChildViewById(rootView, id);
+      if (btnToggleHideSpecial == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_toggle_hide_top;
+      Button btnToggleHideTop = ViewBindings.findChildViewById(rootView, id);
+      if (btnToggleHideTop == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_toggle_massive;
+      Button btnToggleMassive = ViewBindings.findChildViewById(rootView, id);
+      if (btnToggleMassive == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_toggle_safe_area;
+      Button btnToggleSafeArea = ViewBindings.findChildViewById(rootView, id);
+      if (btnToggleSafeArea == null) {
+        break missingId;
+      }
+
       id = R.id.danmaku_view;
       DanmakuView danmakuView = ViewBindings.findChildViewById(rootView, id);
       if (danmakuView == null) {
+        break missingId;
+      }
+
+      id = R.id.seekbar_duration;
+      SeekBar seekbarDuration = ViewBindings.findChildViewById(rootView, id);
+      if (seekbarDuration == null) {
+        break missingId;
+      }
+
+      id = R.id.seekbar_font_size;
+      SeekBar seekbarFontSize = ViewBindings.findChildViewById(rootView, id);
+      if (seekbarFontSize == null) {
+        break missingId;
+      }
+
+      id = R.id.seekbar_line_height;
+      SeekBar seekbarLineHeight = ViewBindings.findChildViewById(rootView, id);
+      if (seekbarLineHeight == null) {
         break missingId;
       }
 
@@ -242,9 +429,33 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.seekbar_track_area;
+      SeekBar seekbarTrackArea = ViewBindings.findChildViewById(rootView, id);
+      if (seekbarTrackArea == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_current_time;
+      TextView tvCurrentTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvCurrentTime == null) {
+        break missingId;
+      }
+
       id = R.id.tv_danmaku_count;
       TextView tvDanmakuCount = ViewBindings.findChildViewById(rootView, id);
       if (tvDanmakuCount == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_duration_value;
+      TextView tvDurationValue = ViewBindings.findChildViewById(rootView, id);
+      if (tvDurationValue == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_font_size_value;
+      TextView tvFontSizeValue = ViewBindings.findChildViewById(rootView, id);
+      if (tvFontSizeValue == null) {
         break missingId;
       }
 
@@ -254,16 +465,51 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tv_line_height_value;
+      TextView tvLineHeightValue = ViewBindings.findChildViewById(rootView, id);
+      if (tvLineHeightValue == null) {
+        break missingId;
+      }
+
       id = R.id.tv_speed_value;
       TextView tvSpeedValue = ViewBindings.findChildViewById(rootView, id);
       if (tvSpeedValue == null) {
         break missingId;
       }
 
+      id = R.id.tv_total_time;
+      TextView tvTotalTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvTotalTime == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_track_area_value;
+      TextView tvTrackAreaValue = ViewBindings.findChildViewById(rootView, id);
+      if (tvTrackAreaValue == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_video_time;
+      TextView tvVideoTime = ViewBindings.findChildViewById(rootView, id);
+      if (tvVideoTime == null) {
+        break missingId;
+      }
+
+      id = R.id.video_seekbar;
+      SeekBar videoSeekbar = ViewBindings.findChildViewById(rootView, id);
+      if (videoSeekbar == null) {
+        break missingId;
+      }
+
       return new ActivityMainBinding((LinearLayout) rootView, btnAddBottom, btnAddRepeated,
-          btnAddSpecial, btnAddTop, btnAddUnique, btnClear, btnModeMixed, btnModeRepeated,
-          btnModeStress, btnModeUnique, btnStartAuto, btnStopAuto, btnToggle, btnToggleBatch,
-          btnToggleCache, danmakuView, seekbarSpeed, tvDanmakuCount, tvFps, tvSpeedValue);
+          btnAddSpecial, btnAddTop, btnAddUnique, btnClear, btnLoadTimeline, btnModeMixed,
+          btnModeRepeated, btnModeStress, btnModeUnique, btnPlayPause, btnResetTimeline, btnSeek10,
+          btnSeek10Forward, btnSeek30, btnStartAuto, btnStopAuto, btnToggle, btnToggleBatch,
+          btnToggleCache, btnToggleHideBottom, btnToggleHideSpecial, btnToggleHideTop,
+          btnToggleMassive, btnToggleSafeArea, danmakuView, seekbarDuration, seekbarFontSize,
+          seekbarLineHeight, seekbarSpeed, seekbarTrackArea, tvCurrentTime, tvDanmakuCount,
+          tvDurationValue, tvFontSizeValue, tvFps, tvLineHeightValue, tvSpeedValue, tvTotalTime,
+          tvTrackAreaValue, tvVideoTime, videoSeekbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

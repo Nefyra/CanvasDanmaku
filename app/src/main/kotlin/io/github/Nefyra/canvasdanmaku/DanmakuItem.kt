@@ -15,7 +15,7 @@ data class DanmakuItem(
     var x: Float,
     var y: Float,
     val color: Int,
-    val textSize: Float,
+    var textSize: Float,
     var width: Float = 0f,
     var height: Float = 0f,
     var isExpired: Boolean = false,
@@ -28,7 +28,7 @@ data class DanmakuItem(
     var hasStroke: Boolean = true,
     var isVisible: Boolean = true,
     val type: DanmakuType = DanmakuType.SCROLL,
-    var drawTick: Long = 0L, // 上次绘制时间，用于静态弹幕过期判断
+    var drawTick: Long = 0L,
     var specialParams: SpecialDanmakuParams? = null,
     var animCurrentX: Float = 0f,
     var animCurrentY: Float = 0f,
