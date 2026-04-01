@@ -123,8 +123,6 @@ danmakuView.addSpecialDanmaku(
 
 > 注意：高级弹幕的坐标是相对于屏幕宽高的百分比，范围为 `[0,1]`。
 
-我来帮你为 README 添加 `TimelineDanmakuController` 的描述。建议在"添加弹幕"章节之后添加一个新的章节：
-
 ## 时间轴弹幕（配合视频播放器）
 
 `TimelineDanmakuController` 用于将弹幕与视频播放时间轴同步。它按秒分组弹幕，根据播放器当前进度自动发送对应时间点的弹幕。
